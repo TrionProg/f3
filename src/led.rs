@@ -58,11 +58,13 @@ impl Led {
 /// - Must be called once
 /// - Must be called in an interrupt-free environment
 pub unsafe fn init() {
-    let gpioe = peripheral::gpioe_mut();
-    let rcc = peripheral::rcc_mut();
+    //let gpioe = peripheral::gpioe_mut();
+    //let rcc = peripheral::rcc_mut();
 
     // RCC: Enable GPIOE
-    rcc.ahbenr.modify(|_, w| w.iopeen(true));
+    //rcc.ahbenr.modify(|_, w| w.iopeen(true));
+
+    /*
 
     // GPIOE: Configure pins 8-15 as outputs
     gpioe.moder.modify(|_, w| {
@@ -75,6 +77,7 @@ pub unsafe fn init() {
             .moder14(0b01)
             .moder15(0b01)
     });
+    */
 }
 
 /// An enum over the LEDs, each LED has associated to it a direction

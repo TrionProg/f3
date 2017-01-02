@@ -157,13 +157,14 @@
 #![cfg_attr(all(target_arch = "arm",
                 feature = "default-exception-handler"),
             feature(core_intrinsics))]
-#![deny(missing_docs)]
-#![deny(warnings)]
+//#![deny(missing_docs)]
+//#![deny(warnings)]
 #![feature(asm)]
 #![feature(lang_items)]
 #![feature(macro_reexport)]
 #![feature(naked_functions)]
 #![no_std]
+#![feature(const_fn)]
 
 #[cfg(all(target_arch = "arm", feature = "alloc"))]
 extern crate alloc_cortex_m;
@@ -176,6 +177,7 @@ extern crate r0;
 extern crate ref_slice;
 
 pub extern crate stm32f30x_memory_map as peripheral;
+use peripheral as memory_map;
 
 #[macro_use]
 mod macros;
@@ -195,6 +197,11 @@ pub mod led;
 pub mod lsm303dlhc;
 pub mod serial;
 pub mod time;
+
+#[macro_use]
+pub extern crate stm32;
+pub mod gpioe;
+pub mod output;
 
 /// Three `i16` integers packed in a struct
 #[derive(Debug)]
