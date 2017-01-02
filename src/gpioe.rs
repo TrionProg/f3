@@ -11,7 +11,6 @@ create_gpio!(GPIOE, gpio_rb:Gpio,
     }
 );
 
-use ::stm32::gpio::Pin;
 use ::stm32::gpio::functions::output::OutputPin;
 
 create_pin!(E8,8);

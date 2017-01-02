@@ -177,7 +177,7 @@ extern crate r0;
 extern crate ref_slice;
 
 pub extern crate stm32f30x_memory_map as peripheral;
-use peripheral as memory_map;
+pub use peripheral as memory_map;
 
 #[macro_use]
 mod macros;
