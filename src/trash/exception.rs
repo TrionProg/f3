@@ -169,5 +169,5 @@ pub unsafe extern "C" fn reset() -> ! {
     main();
 
     // safety net in case `main` returns
-    panic!("returned from `main`!")
+    //panic!("returned from `main`!")
 }

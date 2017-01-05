@@ -176,43 +176,29 @@ extern crate compiler_builtins_snapshot;
 extern crate r0;
 extern crate ref_slice;
 
-pub extern crate stm32f30x_memory_map as peripheral;
-pub use peripheral as memory_map;
+pub extern crate stm32f30x_memory_map as memory_map;
 
 #[macro_use]
-mod macros;
+extern crate stm32;
+pub mod gpioe;
+pub mod output;
+
+//#[macro_use]
+//mod macros;
 
 #[cfg(target_arch = "arm")]
 mod lang_items;
 
-pub mod delay;
-#[cfg(feature = "examples")]
-pub mod examples;
+//pub mod delay;
 pub mod exception;
-pub mod fpu;
+//pub mod fpu;
 pub mod interrupt;
-pub mod itm;
-pub mod l3gd20;
-pub mod led;
-pub mod lsm303dlhc;
-pub mod serial;
-pub mod time;
-
-#[macro_use]
-pub extern crate stm32;
-pub mod gpioe;
-pub mod output;
-
-/// Three `i16` integers packed in a struct
-#[derive(Debug)]
-pub struct I16x3 {
-    /// X component
-    pub x: i16,
-    /// Y component
-    pub y: i16,
-    /// Z component
-    pub z: i16,
-}
+//pub mod itm;
+//pub mod l3gd20;
+//pub mod led;
+//pub mod lsm303dlhc;
+//pub mod serial;
+//pub mod time;
 
 // Default initialization routine
 #[cfg(feature = "default-init")]
@@ -232,14 +218,14 @@ pub unsafe fn _init() {
         #[cfg(not(all(target_arch = "arm", feature = "alloc")))]
         () => {}
     }
-    delay::init();
-    fpu::init();
-    itm::init();
-    l3gd20::init();
-    led::init();
-    lsm303dlhc::init();
-    serial::init();
-    time::init();
+    //delay::init();
+    //fpu::init();
+    //itm::init();
+    //l3gd20::init();
+    //led::init();
+    //lsm303dlhc::init();
+    //serial::init();
+    //time::init();
 }
 
 // Hz
