@@ -1,7 +1,3 @@
-use memory_map;
-//use memory_map::addresses::{deref, deref_mut};
-//use memory_map::addresses::$gpio_name as GPIO_RB_ADDRESS;
-//use memory_map::gpio::gpio_rb::$gpio_rb as GpioRB;//TODO gpio_rb must be part of $gpio_rb
 use stm32::gpio::Pin;
 use memory_map::gpioe::GpioRB;
 use stm32::rcc::RccRBTrait;

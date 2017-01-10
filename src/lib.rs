@@ -165,6 +165,8 @@
 #![feature(naked_functions)]
 #![no_std]
 #![feature(const_fn)]
+#![feature(alloc)]
+#![feature(drop_types_in_const)]
 
 #[cfg(all(target_arch = "arm", feature = "alloc"))]
 extern crate alloc_cortex_m;
@@ -176,12 +178,21 @@ extern crate compiler_builtins_snapshot;
 extern crate r0;
 extern crate ref_slice;
 
+extern crate alloc;
+
+pub use alloc::boxed::Box;
+pub use cortex_m::interrupt::enable as int_en;
+
 pub extern crate stm32f30x_memory_map as memory_map;
 
 #[macro_use]
 extern crate stm32;
+
+pub use stm32 as stm;
+
 pub mod gpioe;
 pub mod output;
+pub mod timer6;
 
 //#[macro_use]
 //mod macros;
